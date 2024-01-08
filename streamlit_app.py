@@ -42,5 +42,5 @@ streamlit.dataframe(my_data_rows) # Fetch all rows
 fruit_choice_inserted = streamlit.text_input('What fruit would you like to add ?')
 streamlit.write('The user inserted ', fruit_choice_inserted)
 my1_cur = my_cnx.cursor()
-my1_cur.execute ( "insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values (fruit_choice_inserted)")
+my1_cur.execute ( "insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values ('JackFruit')")
 
