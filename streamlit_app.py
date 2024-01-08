@@ -31,7 +31,7 @@ streamlit.dataframe(fruityvice_normalized)
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
-my_cur.execute("Select * from PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST")
+#my_cur.execute("Select * from PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST")
 # my_data_row = my_cur.fetchone()
 my_data_rows=my_cur.fetchall()
 # streamlit.text("Hello from Snowflake:")
@@ -41,5 +41,5 @@ streamlit.dataframe(my_data_rows) # Fetch all rows
 # allow end user to add fruit in the list 
 fruit_choice_inserted = streamlit.text_input('What fruit would you like to add ?')
 streamlit.write('The user inserted ', fruit_choice_inserted)
-#my_cur.execute ( "insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values (fruit_choice_inserted)")
+my_cur.execute ( "insert into PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST values (fruit_choice_inserted)")
 
