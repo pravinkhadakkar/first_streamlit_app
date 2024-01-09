@@ -48,6 +48,20 @@ except URLError as e:
 # fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
 #streamlit.dataframe(fruityvice_normalized)
+
+streamlit.header("Food load list contains:")
+#Snowflake-related functions
+def get_fruit_load_list():
+ With my_cnx.cursor() as my_cur:
+      my_cur.execute(“Select * from fruit_load_list”)
+Return my_cur.fetchall()
+
+# Add a button to load the fruit
+If streamlit.button(‘Get Fruit Load list’):
+my_cnx=snowflake.connector.connect (**streamlist.secrets[“snowflake”])
+my_data_rows=get_fruit_load_list()
+streamlit.dataframe(my_data_rows)
+
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 # my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
@@ -55,10 +69,10 @@ my_cur.execute("Select * from PC_RIVERY_DB.PUBLIC.FRUIT_LOAD_LIST")
 # my_data_row = my_cur.fetchone()
 my_data_rows=my_cur.fetchall()
 # streamlit.text("Hello from Snowflake:")
-streamlit.header("Food load list contains:")
+#streamlit.header("Food load list contains:")
 # streamlit.dataframe(my_data_row) # Fetch one row
-streamlit.dataframe(my_data_rows) # Fetch all rows
-streamlit.stop()
+#streamlit.dataframe(my_data_rows) # Fetch all rows
+#streamlit.stop()
 # allow end user to add fruit in the list 
 fruit_choice_inserted = streamlit.text_input('What fruit would you like to add ?')
 streamlit.write('The user inserted ', fruit_choice_inserted)
