@@ -49,7 +49,7 @@ except URLError as e:
 # write your own comment - what does this do?
 #streamlit.dataframe(fruityvice_normalized)
 
-streamlit.header("Food load list contains:")
+streamlit.header("View Out Fruit list- Add your favorites:")
 #Snowflake-related functions
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
